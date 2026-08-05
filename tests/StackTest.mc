@@ -1,14 +1,18 @@
 import Toybox.Test;
 
+function createStack(size) {
+  return new Stack(size, null);
+}
+
 (:test)
 function stackCreatedAsEmpty(logger as Logger) {
-  var stack = new Stack(4);
+  var stack = createStack(4);
   return stack.isEmpty();
 }
 
 (:test)
 function stackSizeAfterPush(logger as Logger) {
-  var stack = new Stack(4);
+  var stack = createStack(4);
   stack.push(2);
   Test.assert(stack.size() == 1);
   stack.push(3);
@@ -17,7 +21,7 @@ function stackSizeAfterPush(logger as Logger) {
 
 (:test)
 function stackSizeAfterPop(logger as Logger) {
-  var stack = new Stack(4);
+  var stack = createStack(4);
   stack.push(2);
   stack.push(3);
   Test.assert(stack.size() == 2);
@@ -27,7 +31,7 @@ function stackSizeAfterPop(logger as Logger) {
 
 (:test)
 function stackFull(logger as Logger) {
-  var stack = new Stack(2);
+  var stack = createStack(2);
   stack.push(2);
   Test.assert(!stack.isEmpty());
   Test.assert(!stack.isFull());
@@ -37,7 +41,7 @@ function stackFull(logger as Logger) {
 
 (:test)
 function stackTos(logger as Logger) {
-  var stack = new Stack(4);
+  var stack = createStack(4);
   Test.assert(stack.tos() == null);
   stack.push(123);
   Test.assert(stack.tos() == 123);
@@ -50,7 +54,7 @@ function stackTos(logger as Logger) {
 
 (:test)
 function stackNos(logger as Logger) {
-  var stack = new Stack(4);
+  var stack = createStack(4);
   Test.assert(stack.nos() == null);
   stack.push(123);
   Test.assert(stack.nos() == null);
@@ -67,7 +71,7 @@ function stackNos(logger as Logger) {
 
 (:test)
 function stackPop(logger as Logger) {
-  var stack = new Stack(4);
+  var stack = createStack(4);
   Test.assert(stack.pop() == null);
   stack.push(1);
   Test.assert(stack.pop() == 1);
@@ -81,7 +85,7 @@ function stackPop(logger as Logger) {
 
 (:test)
 function stackDiscardWhenOverflow(logger as Logger) {
-  var stack = new Stack(3);
+  var stack = createStack(3);
   stack.push(1);
   stack.push(2);
   stack.push(3);
@@ -98,7 +102,7 @@ function stackDiscardWhenOverflow(logger as Logger) {
 
 (:test)
 function stackSetTosOnEmpty(logger as Logger) {
-  var stack = new Stack(4);
+  var stack = createStack(4);
   stack.setTos(42);
   Test.assert(stack.tos() == 42);
   Test.assert(stack.size() == 1);
@@ -107,7 +111,7 @@ function stackSetTosOnEmpty(logger as Logger) {
 
 (:test)
 function stackSetTos(logger as Logger) {
-  var stack = new Stack(4);
+  var stack = createStack(4);
   stack.push(10);
   stack.push(20);
   stack.setTos(42);

@@ -27,14 +27,14 @@ class DisplayView {
         x,
         y + (cellHeight - FONT_HEIGHT) / 2,
         FONT,
-        "X: " + xy[0], // NOS
+        xy[0], // NOS
         Graphics.TEXT_JUSTIFY_LEFT);
 
     dc.drawText(
         x,
         y + cellHeight + (cellHeight - FONT_HEIGHT) / 2,
         FONT,
-        "Y: " + xy[1], // TOS
+        xy[1], // TOS
         Graphics.TEXT_JUSTIFY_LEFT);
   }
 }

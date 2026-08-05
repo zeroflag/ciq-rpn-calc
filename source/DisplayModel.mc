@@ -80,7 +80,7 @@ class DisplayModel {
 
   private function toStr(n) {
     if (n == null) {
-      return "0";
+      return "0.0000000";
     } else if (n instanceof Double
                || n instanceof Float)
     {

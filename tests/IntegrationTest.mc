@@ -68,6 +68,14 @@ function testStackTest(logger as Logger) { // TODO
 }
 
 (:test)
+function testUnderflow(logger as Logger) {
+  var app = new TestApp();
+  app.select("4");
+  app.select(:ADD);
+  return app.stackOnlyContains(4);
+}
+
+(:test)
 function floatTest(logger as Logger) {
   var app = new TestApp();
   app.select("2");

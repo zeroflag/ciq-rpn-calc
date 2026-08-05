@@ -2,9 +2,11 @@ class Stack {
   var stack = [];
   var capacity;
   var sp = 0;
+  var none = null;
 
-  function initialize(n) {
+  function initialize(n, noneValue) {
     capacity = n;
+    none = noneValue;
     for (var i = 0; i < capacity; i++) {
       stack.add(0);
     }
@@ -27,7 +29,7 @@ class Stack {
 
   function pop() {
     if (isEmpty()) {
-      return null;
+      return none;
     }
     sp--;
     return stack[sp];
@@ -42,11 +44,11 @@ class Stack {
   }
 
   function tos() {
-    return isEmpty() ? null : stack[sp - 1];
+    return isEmpty() ? none : stack[sp - 1];
   }
 
   function nos() {
-    return size() < 2 ? null : stack[sp - 2];
+    return size() < 2 ? none : stack[sp - 2];
   }
 
   function setTos(v) {
