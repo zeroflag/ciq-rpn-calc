@@ -7,19 +7,9 @@ class Key extends WatchUi.KeyEvent {
   function getKey() { return key; }
 }
 
-class SUT {
-  var stack;
-  var calc;
-  var buttonsModel;
-  var displayModel;
-  var ctrl;
-
+class TestApp extends CalcApp {
   function initialize() {
-    stack = new Stack(4);
-    calc = new Calc(stack);
-    buttonsModel = new ButtonsModel();
-    displayModel = new DisplayModel(calc);
-    ctrl = new CalcController(buttonsModel, displayModel);
+    CalcApp.initialize();
   }
 
   function select(operator) {
@@ -45,83 +35,83 @@ class SUT {
   
 (:test)
 function smokeTest(logger as Logger) {
-  var sut = new SUT();
-  sut.select("3");
-  sut.select(:ENTER);
-  sut.select(:MUL);
-  return sut.stackOnlyContains(9);
+  var app = new TestApp();
+  app.select("3");
+  app.select(:ENTER);
+  app.select(:MUL);
+  return app.stackOnlyContains(9);
 }
 
 (:test)
 function backspaceTest(logger as Logger) {
-  var sut = new SUT();
-  sut.select("4");
-  sut.select("5");
-  sut.select("6");
-  sut.select(:BACKSPACE);
-  sut.select(:BACKSPACE);
-  sut.select(:ENTER);
-  sut.select(:MUL);
-  return sut.stackOnlyContains(16);
+  var app = new TestApp();
+  app.select("4");
+  app.select("5");
+  app.select("6");
+  app.select(:BACKSPACE);
+  app.select(:BACKSPACE);
+  app.select(:ENTER);
+  app.select(:MUL);
+  return app.stackOnlyContains(16);
 }
 
 (:test)
 function testStackTest(logger as Logger) { // TODO
-  var sut = new SUT();
-  sut.select("4");
-  sut.select("7");
-  sut.select(:ENTER);
-  sut.select("2");
-  sut.select("3");
-  sut.select(:ADD);
-  return sut.stackOnlyContains(70);
+  var app = new TestApp();
+  app.select("4");
+  app.select("7");
+  app.select(:ENTER);
+  app.select("2");
+  app.select("3");
+  app.select(:ADD);
+  return app.stackOnlyContains(70);
 }
 
 (:test)
 function floatTest(logger as Logger) {
-  var sut = new SUT();
-  sut.select("2");
-  sut.select(:DECIMAL);
-  sut.select("5");
-  sut.select(:ENTER);
-  sut.select(:ADD);
-  return sut.stackOnlyContains(5);
+  var app = new TestApp();
+  app.select("2");
+  app.select(:DECIMAL);
+  app.select("5");
+  app.select(:ENTER);
+  app.select(:ADD);
+  return app.stackOnlyContains(5);
 }
 
 (:test)
 function multipleDecimalTest(logger as Logger) {
-  var sut = new SUT();
-  sut.select("2");
-  sut.select(:DECIMAL);
-  sut.select(:DECIMAL);
-  sut.select("5");
-  sut.select(:DECIMAL);
-  sut.select(:ENTER);
-  sut.select(:ADD);
-  return sut.stackOnlyContains(5);
+  var app = new TestApp();
+  app.select("2");
+  app.select(:DECIMAL);
+  app.select(:DECIMAL);
+  app.select("5");
+  app.select(:DECIMAL);
+  app.select(:ENTER);
+  app.select(:ADD);
+  return app.stackOnlyContains(5);
 }
 
 (:test)
 function enteringNewNumberOnTopOfExistingResult(logger as Logger) {
-  var sut = new SUT();
-  sut.select("1");
-  sut.select("2");
-  sut.select(:ENTER);
-  sut.select(:ADD);
-  sut.select("6");
-  sut.select(:ADD);
-  return sut.stackOnlyContains(30);
+  var app = new TestApp();
+  app.select("1");
+  app.select("2");
+  app.select(:ENTER);
+  app.select(:ADD);
+  app.select("6");
+  app.select(:ADD);
+  return app.stackOnlyContains(30);
 }
 
 (:test)
 function backspaceOnExistingResult(logger as Logger) {
-  var sut = new SUT();
-  sut.select("1");
-  sut.select(:ENTER);
-  sut.select(:MUL);
-  sut.select("2");
-  sut.select(:ENTER);
-  sut.select(:MUL);
-  sut.select(:BACKSPACE);
-  return sut.stackContains([1, 0]);
+  var app = new TestApp();
+  app.select("1");
+  app.select(:ENTER);
+  app.select(:MUL);
+  app.select("2");
+  app.select(:ENTER);
+  app.select(:MUL);
+  app.select(:BACKSPACE);
+  return app.stackContains([1, 0]);
 }

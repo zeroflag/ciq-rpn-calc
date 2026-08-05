@@ -2,21 +2,25 @@ using Toybox.Application as App;
 
 class CalcApp extends App.AppBase {
   const MAX_DEPTH = 4;
-  private var calc;
-  private var buttonsModel;
-  private var displayModel;
+  protected var calc;
+  protected var buttonsModel;
+  protected var displayModel;
+  protected var stack;
+  protected var ctrl;
 
   function initialize() {
     AppBase.initialize();
-    calc = new Calc(new Stack(MAX_DEPTH));
+    stack = new Stack(MAX_DEPTH);
+    calc = new Calc(stack);
     buttonsModel = new ButtonsModel();
     displayModel = new DisplayModel(calc);
+    ctrl = new CalcController(buttonsModel, displayModel);
   }
 
   function getInitialView() {
     return [ new CalcView([new ButtonsView(buttonsModel),
                            new DisplayView(displayModel)]),
-             new CalcController(buttonsModel, displayModel) ];
+             ctrl ];
   }
 
 }
