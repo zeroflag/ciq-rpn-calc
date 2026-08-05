@@ -10,27 +10,25 @@ class DisplayModel {
   function eval(token) {
     if (isDigit(token)) {
       buffer += token;
-      updateTos();
     } else if (token == :DECIMAL) {
       addDecimalPoint();
     } else if (token == :BACKSPACE) {
       backspace();
-      updateTos();
     } else if (token == :ENTER) {
+      consume();
       calc.dup();
-      clearBuffer();
     } else if (token == :ADD) {
+      consume();
       calc.add();
-      clearBuffer();
     } else if (token == :SUB) {
+      consume();
       calc.sub();
-      clearBuffer();
     } else if (token == :MUL) {
+      consume();
       calc.mul();
-      clearBuffer();
     } else if (token == :DIV) {
+      consume();
       calc.div();
-      clearBuffer();
     }
   }
 
@@ -38,11 +36,15 @@ class DisplayModel {
     return DIGITS.indexOf(token) >= 0;
   }
 
-  private function updateTos() {
-    var n = buffer.find(".") != null
-      ? buffer.toDouble()
-      : buffer.toNumber();
-    calc.setRegY(n);
+  private function consume() {
+    if (buffer.length() != 0) {
+      var n = buffer.find(".") != null
+        ? buffer.toDouble()
+        : buffer.toNumber();
+      calc.push(n);
+      buffer = "";
+    }
+    // System.println("Stack: " + calc.stack.toString());
   }
 
   private function addDecimalPoint() {
@@ -60,20 +62,12 @@ class DisplayModel {
     }  
   }
 
-  private function clearBuffer() {
-    buffer = "";
- // TODO remove
-    System.println("Stack: " + calc.stack.toString());
-  }
-
-  function getRegX() {
-    return toStr(calc.getRegX());
-  }
-
-  function getRegY() {
-    return buffer.length() != 0
-      ? buffer
-      : toStr(calc.getRegY());
+  function xy() {
+    if (buffer.length() != 0)  {
+      return [toStr(calc.getRegY()), buffer];
+    } else {
+      return [toStr(calc.getRegX()), toStr(calc.getRegY())] ;
+    }
   }
 
   private function toStr(n) {

@@ -21,18 +21,20 @@ class DisplayView {
 
     dc.drawLine(x, y + cellHeight, x + displayWidth, y + cellHeight);
 
+    var xy = displayModel.xy();
+
     dc.drawText(
         x,
         y + (cellHeight - FONT_HEIGHT) / 2,
         FONT,
-        "X: " + displayModel.getRegX(), // NOS
+        "X: " + xy[0], // NOS
         Graphics.TEXT_JUSTIFY_LEFT);
 
     dc.drawText(
         x,
         y + cellHeight + (cellHeight - FONT_HEIGHT) / 2,
         FONT,
-        "Y: " + displayModel.getRegY(), // TOS
+        "Y: " + xy[1], // TOS
         Graphics.TEXT_JUSTIFY_LEFT);
   }
 }

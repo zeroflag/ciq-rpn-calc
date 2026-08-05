@@ -80,3 +80,15 @@ function multipleDecimalTest(logger as Logger) {
   sut.select(:ADD);
   return sut.stackOnlyContains(5);
 }
+
+(:test)
+function enteringNewNumberOnTopOfExistingResult(logger as Logger) {
+  var sut = new SUT();
+  sut.select("1");
+  sut.select("2");
+  sut.select(:ENTER);
+  sut.select(:ADD);
+  sut.select("6");
+  sut.select(:ADD);
+  return sut.stackOnlyContains(30);
+}
