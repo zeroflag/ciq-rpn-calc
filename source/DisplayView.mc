@@ -1,4 +1,5 @@
 class DisplayView {
+  const MAX_LEN = 9;
   const FONT = Graphics.FONT_MEDIUM;
   const FONT_HEIGHT = Graphics.getFontHeight(FONT);
   private var displayModel;
@@ -27,14 +28,21 @@ class DisplayView {
         x,
         y + (cellHeight - FONT_HEIGHT) / 2,
         FONT,
-        xy[0], // NOS
+        trim(xy[0]), // NOS
         Graphics.TEXT_JUSTIFY_LEFT);
 
     dc.drawText(
         x,
         y + cellHeight + (cellHeight - FONT_HEIGHT) / 2,
         FONT,
-        xy[1], // TOS
+        trim(xy[1]), // TOS
         Graphics.TEXT_JUSTIFY_LEFT);
+  }
+
+  function trim(s) {
+    if (s.length() > MAX_LEN) {
+      return s.substring(0, MAX_LEN);
+    }
+    return s;
   }
 }

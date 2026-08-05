@@ -1,7 +1,7 @@
 class ButtonsView {
   const PADDING = 15;
   const FONT = Graphics.FONT_MEDIUM;
-  const OPS = { :BACKSPACE => "«",
+  const OPS = { :BACKSPACE => "C",
                 :ENTER     => "E",
                 :ADD       => "+",
                 :SUB       => "-",
@@ -49,7 +49,7 @@ class ButtonsView {
     } else if (i <= 11) {
       dc.setColor(Graphics.COLOR_DK_BLUE, Graphics.COLOR_WHITE);
     } else {
-      dc.setColor(Graphics.COLOR_PURPLE, Graphics.COLOR_WHITE);
+      dc.setColor(Graphics.COLOR_BLACK, Graphics.COLOR_WHITE);
     }
   }
 

@@ -81,7 +81,7 @@ class DisplayModel {
     } else if (n instanceof Double
                || n instanceof Float)
     {
-      return n.format("%.4f");
+      return n.format("%.7f");
     } else {
       return n.toString();
     }
