@@ -12,7 +12,7 @@ class DisplayModel {
       buffer += token;
       updateTos();
     } else if (token == :DECIMAL) {
-      buffer += ".";
+      addDecimalPoint();
     } else if (token == :BACKSPACE) {
       backspace();
       updateTos();
@@ -43,6 +43,15 @@ class DisplayModel {
       ? buffer.toDouble()
       : buffer.toNumber();
     calc.setRegY(n);
+  }
+
+  private function addDecimalPoint() {
+    var len = buffer.length();
+    if (len == 0) {
+      buffer = "0.";
+    } else if (buffer.find(".") == null) {
+      buffer += ".";
+    }
   }
   
   private function backspace() {

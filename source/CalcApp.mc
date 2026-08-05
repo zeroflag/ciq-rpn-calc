@@ -1,5 +1,9 @@
 using Toybox.Application as App;
 
+// BUGS:
+//  - multiple decimal
+//  - entering digit when a result is available on TOS overwrites it instead of shifting it
+
 class CalcApp extends App.AppBase {
   const MAX_DEPTH = 4;
   private var calc;
