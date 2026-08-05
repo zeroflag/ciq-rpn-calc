@@ -61,6 +61,10 @@ class Stack {
     return sp;
   }
 
+  function at(i) {
+    return stack[i];
+  }
+
   function toString() {
     var s = "";
     for (var i = 0; i < size(); i++) {

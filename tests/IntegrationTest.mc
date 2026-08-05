@@ -33,6 +33,14 @@ class SUT {
     Test.assert(stack.size() == 1 && stack.tos() == n);
     return true;
   }
+
+  function stackContains(anArray) {
+    Test.assert(stack.size() == anArray.size());
+    for (var i = 0; i < stack.size(); i++) {
+      Test.assert(stack.at(i) == anArray[i]);
+    }
+    return true;
+  }
 }
   
 (:test)
@@ -91,4 +99,17 @@ function enteringNewNumberOnTopOfExistingResult(logger as Logger) {
   sut.select("6");
   sut.select(:ADD);
   return sut.stackOnlyContains(30);
+}
+
+(:test)
+function backspaceOnExistingResult(logger as Logger) {
+  var sut = new SUT();
+  sut.select("1");
+  sut.select(:ENTER);
+  sut.select(:MUL);
+  sut.select("2");
+  sut.select(:ENTER);
+  sut.select(:MUL);
+  sut.select(:BACKSPACE);
+  return sut.stackContains([1, 0]);
 }

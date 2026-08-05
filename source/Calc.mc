@@ -29,8 +29,15 @@ class Calc {
     stack.push(a == 0 ? 0 : b / a);
   }
 
-  function dup() {
+  function enter() {
     stack.push(stack.tos());
+  }
+
+  function setRegY(n) {
+    if (!stack.isEmpty()) {
+      stack.pop(); 
+    }
+    stack.push(n);
   }
 
   function getRegY() {

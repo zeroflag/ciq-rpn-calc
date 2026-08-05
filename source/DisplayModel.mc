@@ -16,7 +16,7 @@ class DisplayModel {
       backspace();
     } else if (token == :ENTER) {
       consume();
-      calc.dup();
+      calc.enter();
     } else if (token == :ADD) {
       consume();
       calc.add();
@@ -55,11 +55,15 @@ class DisplayModel {
       buffer += ".";
     }
   }
-  
+
   private function backspace() {
-    if (buffer.length() > 0) {
+    if (buffer.length() > 1) {
       buffer = buffer.substring(0, buffer.length() - 1);
-    }  
+    } else if (buffer.length() == 1 ) {
+      buffer = "0";
+    } else {
+      calc.setRegY(0);
+    } 
   }
 
   function xy() {
