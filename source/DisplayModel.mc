@@ -9,7 +9,7 @@ class DisplayModel {
 
   function eval(token) {
     if (isDigit(token)) {
-      buffer += token;
+      append(token);
     } else if (token == :DECIMAL) {
       addDecimalPoint();
     } else if (token == :BACKSPACE) {
@@ -33,6 +33,14 @@ class DisplayModel {
 
   private function isDigit(token) {
     return DIGITS.indexOf(token) >= 0;
+  }
+
+  private function append(token) {
+    if (buffer.equals("0")) {
+      buffer = token;
+    } else {
+      buffer += token;
+    }
   }
 
   private function consume() {
