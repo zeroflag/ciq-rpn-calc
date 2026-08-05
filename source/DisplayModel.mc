@@ -38,13 +38,17 @@ class DisplayModel {
 
   private function consume() {
     if (buffer.length() != 0) {
-      var n = buffer.find(".") != null
-        ? buffer.toDouble()
-        : buffer.toNumber();
-      calc.push(n);
+      calc.push(bufferValue());
       buffer = "";
     }
-    // System.println("Stack: " + calc.stack.toString());
+    // TODO remove
+    System.println("Stack: " + calc.stack.toString());
+  }
+
+  private function bufferValue() {
+    return buffer.find(".") != null
+      ? buffer.toDouble()
+      : buffer.toNumber();
   }
 
   private function addDecimalPoint() {
