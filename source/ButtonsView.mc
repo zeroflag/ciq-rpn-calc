@@ -1,11 +1,12 @@
 class ButtonsView {
-  const PADDING = 16;
+  const PADDING = 15;
+  const PADDING_EXTRA = 25;
   const OPS = { :BACKSPACE => "«",
                 :ENTER     => "ENT",
                 :ADD       => "+",
                 :SUB       => "-",
                 :MUL       => "×",
-                :DIV       => "÷",
+                :DIV       => ":",
                 :DECIMAL   => "." };
   private var model;
 
@@ -24,15 +25,18 @@ class ButtonsView {
   }
 
   private function drawButton(dc, degrees, i) {
+    var button = model.at(i);
+    var padding = button == :ENTER ? PADDING_EXTRA : PADDING;
+    var font = button == :ENTER ? Graphics.FONT_SMALL : Graphics.FONT_MEDIUM;
     var centerX = dc.getWidth() / 2;
     var centerY = dc.getHeight() / 2;
-    var radius = centerX - PADDING;
+    var radius = centerX - padding;
     var radian = Math.toRadians(degrees);
     dc.drawText(
       radius * Math.cos(radian) + centerX,
       radius * Math.sin(radian) + centerY,
-      Graphics.FONT_SMALL,
-      translate(model.at(i)),
+      font,
+      translate(button),
       Graphics.TEXT_JUSTIFY_CENTER
       | Graphics.TEXT_JUSTIFY_VCENTER);
   }
@@ -47,7 +51,7 @@ class ButtonsView {
     } else if (i <= 11) {
       dc.setColor(Graphics.COLOR_DK_BLUE, Graphics.COLOR_WHITE);
     } else {
-      dc.setColor(Graphics.COLOR_BLACK, Graphics.COLOR_WHITE);
+      dc.setColor(Graphics.COLOR_PURPLE, Graphics.COLOR_WHITE);
     }
   }
 

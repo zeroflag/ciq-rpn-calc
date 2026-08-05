@@ -66,6 +66,18 @@ function backspaceTest(logger as Logger) {
 }
 
 (:test)
+function testStackTest(logger as Logger) {
+  var sut = new SUT();
+  sut.select("4");
+  sut.select("7");
+  sut.select(:ENTER);
+  sut.select("2");
+  sut.select("3");
+  sut.select(:ADD);
+  return sut.stackOnlyContains(70);
+}
+
+(:test)
 function floatTest(logger as Logger) {
   var sut = new SUT();
   sut.select("2");
