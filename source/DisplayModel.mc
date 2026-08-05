@@ -15,7 +15,7 @@ class DisplayModel {
     } else if (token == :BACKSPACE) {
       backspace();
     } else if (token == :ENTER) {
-      consume();
+      enter();
     } else if (token == :ADD) {
       consume();
       calc.add();
@@ -40,6 +40,14 @@ class DisplayModel {
       buffer = token;
     } else {
       buffer += token;
+    }
+  }
+
+  private function enter() {
+    if (buffer.length() == 0) {
+      calc.dup();
+    } else {
+      consume();
     }
   }
 

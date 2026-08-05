@@ -163,3 +163,12 @@ function testFloatingPoint(logger as Logger) {
   app.printStack();
   return app.stackOnlyContains(2.5);
 }
+
+(:test)
+function testMultipleEnterAsDup(logger as Logger) {
+  var app = new TestApp();
+  app.select("5");
+  app.select(:ENTER);
+  app.select(:ENTER);
+  return app.stackContains([5, 5]);
+}

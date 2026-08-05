@@ -29,6 +29,10 @@ class Calc {
     stack.push(a == 0 ? 0 : b / a.toDouble());
   }
 
+  function dup() {
+    stack.push(stack.tos());
+  }
+  
   function clearY() {
     if (!stack.isEmpty()) {
       stack.pop(); 
