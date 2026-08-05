@@ -71,7 +71,9 @@ class Stack {
     var s = "";
     for (var i = 0; i < size(); i++) {
       s += stack[i];
-      s += " ";
+      if (i < size() -1) {
+        s += " ";
+      }
     }
     return s;
   }

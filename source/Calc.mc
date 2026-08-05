@@ -26,18 +26,14 @@ class Calc {
   function div() {
     var a = stack.pop(); 
     var b = stack.pop(); 
-    stack.push(a == 0 ? 0 : b / a);
+    stack.push(a == 0 ? 0 : b / a.toDouble());
   }
 
-  function enter() {
-    stack.push(stack.tos());
-  }
-
-  function setRegY(n) {
+  function clearY() {
     if (!stack.isEmpty()) {
       stack.pop(); 
+      stack.push(0);
     }
-    stack.push(n);
   }
 
   function getRegY() {

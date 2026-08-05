@@ -16,7 +16,6 @@ class DisplayModel {
       backspace();
     } else if (token == :ENTER) {
       consume();
-      calc.enter();
     } else if (token == :ADD) {
       consume();
       calc.add();
@@ -41,8 +40,6 @@ class DisplayModel {
       calc.push(bufferValue());
       buffer = "";
     }
-    // TODO remove
-    System.println("Stack: " + calc.stack.toString());
   }
 
   private function bufferValue() {
@@ -66,7 +63,7 @@ class DisplayModel {
     } else if (buffer.length() == 1 ) {
       buffer = "0";
     } else {
-      calc.setRegY(0);
+      calc.clearY();
     } 
   }
 

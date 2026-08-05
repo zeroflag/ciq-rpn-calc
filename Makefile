@@ -19,6 +19,7 @@ $(OUT): $(wildcard source/*.mc) monkey.jungle manifest.xml
 
 $(TESTOUT): $(wildcard source/*.mc) $(wildcard tests/*.mc) monkey.jungle manifest.xml
 	$(MONKEYC) \
+		--typecheck 2\
 		-f monkey.jungle \
 		-o $(TESTOUT) \
 		-y $(KEY) \
