@@ -7,6 +7,7 @@ class CalcApp extends App.AppBase {
   protected var displayModel;
   protected var stack;
   protected var ctrl;
+  protected var view;
 
   function initialize() {
     AppBase.initialize();
@@ -15,12 +16,12 @@ class CalcApp extends App.AppBase {
     buttonsModel = new ButtonsModel();
     displayModel = new DisplayModel(calc);
     ctrl = new CalcController(buttonsModel, displayModel);
+    view = new CalcView([new ButtonsView(buttonsModel),
+                         new DisplayView(displayModel)]);
   }
 
   function getInitialView() {
-    return [ new CalcView([new ButtonsView(buttonsModel),
-                           new DisplayView(displayModel)]),
-             ctrl ];
+    return [ view, ctrl ];
   }
 
 }
