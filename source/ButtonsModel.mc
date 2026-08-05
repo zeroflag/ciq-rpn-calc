@@ -12,14 +12,14 @@ class ButtonsModel {
   }
 
   function next() {
-    selected = (selected + 1) % size();
-  }
-
-  function previous() {
     selected--;
     if (selected < 0) {
       selected = size() - 1;
     }
+  }
+
+  function previous() {
+    selected = (selected + 1) % size();
   }
   
   function at(n) {

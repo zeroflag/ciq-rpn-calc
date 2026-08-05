@@ -66,7 +66,7 @@ function backspaceTest(logger as Logger) {
 }
 
 (:test)
-function testStackTest(logger as Logger) {
+function testStackTest(logger as Logger) { // TODO
   var sut = new SUT();
   sut.select("4");
   sut.select("7");

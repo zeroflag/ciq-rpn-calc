@@ -1,8 +1,8 @@
 class ButtonsView {
   const PADDING = 15;
-  const PADDING_EXTRA = 25;
+  const FONT = Graphics.FONT_MEDIUM;
   const OPS = { :BACKSPACE => "«",
-                :ENTER     => "ENT",
+                :ENTER     => "E",
                 :ADD       => "+",
                 :SUB       => "-",
                 :MUL       => "×",
@@ -26,16 +26,14 @@ class ButtonsView {
 
   private function drawButton(dc, degrees, i) {
     var button = model.at(i);
-    var padding = button == :ENTER ? PADDING_EXTRA : PADDING;
-    var font = button == :ENTER ? Graphics.FONT_SMALL : Graphics.FONT_MEDIUM;
     var centerX = dc.getWidth() / 2;
     var centerY = dc.getHeight() / 2;
-    var radius = centerX - padding;
+    var radius = centerX - PADDING;
     var radian = Math.toRadians(degrees);
     dc.drawText(
       radius * Math.cos(radian) + centerX,
       radius * Math.sin(radian) + centerY,
-      font,
+      FONT,
       translate(button),
       Graphics.TEXT_JUSTIFY_CENTER
       | Graphics.TEXT_JUSTIFY_VCENTER);
