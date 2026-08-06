@@ -59,9 +59,10 @@ class DisplayModel {
   }
 
   private function bufferValue() {
-    return buffer.find(".") != null
+    var val = buffer.find(".") != null
       ? buffer.toDouble()
-      : buffer.toNumber();
+      : buffer.toLong();
+    return val == null ? 0 : val;
   }
 
   private function addDecimalPoint() {

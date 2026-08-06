@@ -19,7 +19,7 @@ class DisplayView {
 
     dc.setColor(TEXT_COLOR, Graphics.COLOR_WHITE);
 
-    dc.drawLine(x, y + cellHeight, x + displayWidth, y + cellHeight);
+    /* dc.drawLine(x, y + cellHeight, x + displayWidth, y + cellHeight); */
 
     var xy = registers();
     // NOS
@@ -31,6 +31,9 @@ class DisplayView {
     dc.setColor(color, Graphics.COLOR_WHITE);
     // TOS 
     drawRegister(dc, x, y + cellHeight, xy[1], cellWidth, cellHeight);
+
+    /* dc.drawRectangle(x, y, cellWidth, cellHeight); */
+    /* dc.drawRectangle(x, y + cellHeight, cellWidth, cellHeight); */
   }
 
   function drawRegister(dc, x, y, text, w, h) {

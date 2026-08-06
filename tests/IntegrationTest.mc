@@ -189,3 +189,19 @@ function testBignum(logger as Logger) {
   app.select(:MUL);
   return app.stackOnlyContains(4294967296L);
 }
+
+(:test)
+function testEnterBigNum(logger as Logger) {
+  var app = new TestApp();
+  app.typeNumber("4294967296");
+  app.select(:ENTER);
+  return app.stackOnlyContains(4294967296L);
+}
+
+(:test)
+function testEnterOutOfRangeNumber(logger as Logger) {
+  var app = new TestApp();
+  app.typeNumber("18446744073709551616");
+  app.select(:ENTER);
+  return app.stackOnlyContains(0);
+}
