@@ -1,4 +1,6 @@
 class DisplayView {
+  const TEXT_COLOR = Graphics.COLOR_BLACK;
+  const PENDING_TEXT_COLOR = Graphics.COLOR_DK_GRAY;
   const MAX_LEN = 9;
   const FONT = Graphics.FONT_MEDIUM;
   const FONT_HEIGHT = Graphics.getFontHeight(FONT);
@@ -9,8 +11,6 @@ class DisplayView {
   }
   
   public function draw(dc) {
-    dc.setColor(Graphics.COLOR_BLACK, Graphics.COLOR_WHITE);
-    
     var displayWidth = dc.getWidth() / 2;
     var displayHeight = dc.getHeight() / 2;
 
@@ -19,6 +19,8 @@ class DisplayView {
 
     var cellWidth = displayWidth;
     var cellHeight = displayHeight / 2;
+
+    dc.setColor(TEXT_COLOR, Graphics.COLOR_WHITE);
 
     dc.drawLine(x, y + cellHeight, x + displayWidth, y + cellHeight);
 
@@ -31,6 +33,11 @@ class DisplayView {
         trim(xy[0]), // NOS
         Graphics.TEXT_JUSTIFY_LEFT);
 
+    var color = displayModel.hasPendingValue()
+      ? PENDING_TEXT_COLOR
+      : TEXT_COLOR;
+    dc.setColor(color, Graphics.COLOR_WHITE);
+    
     dc.drawText(
         x,
         y + cellHeight + (cellHeight - FONT_HEIGHT) / 2,

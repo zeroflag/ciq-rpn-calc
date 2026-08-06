@@ -4,7 +4,7 @@ class ButtonsView {
   const OPS = { :BACKSPACE => "C",
                 :ENTER     => "E",
                 :ADD       => "+",
-                :SUB       => "-",
+                :SUB       => "–", // dash, not minus (- – —)
                 :MUL       => "×",
                 :DIV       => ":",
                 :DECIMAL   => "." };
