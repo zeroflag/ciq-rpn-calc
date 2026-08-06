@@ -83,28 +83,19 @@ class DisplayModel {
     } 
   }
 
-  function xy() {
-    if (buffer.length() != 0)  {
-      return [toStr(calc.getRegY()), buffer];
-    } else {
-      return [toStr(calc.getRegX()), toStr(calc.getRegY())] ;
-    }
+  function getRegY() {
+    return calc.getRegY();
+  }
+
+  function getRegX() {
+    return calc.getRegX();
   }
 
   function hasPendingValue() {
     return buffer.length() > 0;
   }
 
-  // TODO move to v
-  private function toStr(n) {
-    if (n == 0) {
-      return "0.0000000";
-    } else if (n instanceof Double
-               || n instanceof Float)
-    {
-      return n.format("%.7f");
-    } else {
-      return n.toString();
-    }
+  function pendingValue() {
+    return buffer;
   }
 }

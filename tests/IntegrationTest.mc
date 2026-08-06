@@ -15,7 +15,8 @@ class TestApp extends CalcApp {
 
   function select(operator) {
     while (!buttonsModel.selectedItem().equals(operator)) {
-      ctrl.onKey(new Key(WatchUi.KEY_UP));
+      ctrl.onKeyPressed(new Key(WatchUi.KEY_UP));
+      ctrl.onKeyReleased(new Key(WatchUi.KEY_UP));
     }
     ctrl.onKey(new Key(WatchUi.KEY_ENTER));
   }

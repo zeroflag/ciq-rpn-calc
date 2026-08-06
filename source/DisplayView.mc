@@ -24,7 +24,7 @@ class DisplayView {
 
     dc.drawLine(x, y + cellHeight, x + displayWidth, y + cellHeight);
 
-    var xy = displayModel.xy();
+    var xy = registers();
 
     dc.drawText(
         x,
@@ -44,6 +44,26 @@ class DisplayView {
         FONT,
         trim(xy[1]), // TOS
         Graphics.TEXT_JUSTIFY_LEFT);
+  }
+
+  function registers() {
+    return displayModel.hasPendingValue()
+      ? [toStr(displayModel.getRegY()),
+          displayModel.pendingValue()]
+      : [toStr(displayModel.getRegX()),
+         toStr(displayModel.getRegY())];
+  }
+
+  private function toStr(n) {
+    if (n == 0) {
+      return "0.0000000";
+    } else if (n instanceof Double
+               || n instanceof Float)
+    {
+      return n.format("%.7f");
+    } else {
+      return n.toString();
+    }
   }
 
   function trim(s) {
