@@ -95,6 +95,7 @@ class DisplayModel {
     return buffer.length() > 0;
   }
 
+  // TODO move to v
   private function toStr(n) {
     if (n == 0) {
       return "0.0000000";
