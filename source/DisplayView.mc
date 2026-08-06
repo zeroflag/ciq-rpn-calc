@@ -1,9 +1,6 @@
 class DisplayView {
   const TEXT_COLOR = Graphics.COLOR_BLACK;
   const PENDING_TEXT_COLOR = Graphics.COLOR_DK_RED;
-  const MAX_LEN = 9;
-  const FONT = Graphics.FONT_MEDIUM;
-  const FONT_HEIGHT = Graphics.getFontHeight(FONT);
   private var displayModel;
 
   public function initialize(aDisplayModel) {
@@ -25,25 +22,29 @@ class DisplayView {
     dc.drawLine(x, y + cellHeight, x + displayWidth, y + cellHeight);
 
     var xy = registers();
-
-    dc.drawText(
-        x,
-        y + (cellHeight - FONT_HEIGHT) / 2,
-        FONT,
-        trim(xy[0]), // NOS
-        Graphics.TEXT_JUSTIFY_LEFT);
+    // NOS
+    drawRegister(dc, x, y, xy[0], cellWidth, cellHeight);
 
     var color = displayModel.hasPendingValue()
       ? PENDING_TEXT_COLOR
       : TEXT_COLOR;
     dc.setColor(color, Graphics.COLOR_WHITE);
-    
+    // TOS 
+    drawRegister(dc, x, y + cellHeight, xy[1], cellWidth, cellHeight);
+  }
+
+  function drawRegister(dc, x, y, text, w, h) {
+    var font = Graphics.FONT_MEDIUM;
+    if (Graphics.fitTextToArea(text, font, w, h, false) == null) {
+      font = Graphics.FONT_SMALL; 
+      text = Graphics.fitTextToArea(text, font, w, h, true);
+    }
     dc.drawText(
-        x,
-        y + cellHeight + (cellHeight - FONT_HEIGHT) / 2,
-        FONT,
-        trim(xy[1]), // TOS
-        Graphics.TEXT_JUSTIFY_LEFT);
+      x,
+      y + (h - Graphics.getFontHeight(font)) / 2,
+      font,
+      text,
+      Graphics.TEXT_JUSTIFY_LEFT);
   }
 
   function registers() {
@@ -56,20 +57,13 @@ class DisplayView {
 
   private function toStr(n) {
     if (n == 0) {
-      return "0.0000000";
+      return "0.000000";
     } else if (n instanceof Double
                || n instanceof Float)
     {
-      return n.format("%.7f");
+      return n.format("%.6f");
     } else {
       return n.toString();
     }
-  }
-
-  function trim(s) {
-    if (s.length() > MAX_LEN) {
-      return s.substring(0, MAX_LEN);
-    }
-    return s;
   }
 }
