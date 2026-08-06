@@ -2,6 +2,7 @@ APP      := RPNCALC
 DEVICE   := fenix5s
 OUT      := $(APP).PRG
 TESTOUT  := $(APP)_TEST.PRG
+PKG      := $(APP).iq
 KEY      := developer_key.der
 SDKPATH  := ~/.Garmin/ConnectIQ/Sdks/connectiq-sdk-lin-9.2.0-2026-06-09-92a1605b2/bin
 
@@ -32,7 +33,14 @@ run: $(OUT)
 test: $(TESTOUT)
 	$(SIM) $(TESTOUT) $(DEVICE) -t
 
+package:
+	$(MONKEYC) \
+		-f monkey.jungle \
+		-o $(PKG) \
+		-y $(KEY) \
+    -e
+
 clean:
-	rm -f $(OUT) $(TESTOUT)
+	rm -f $(OUT) $(TESTOUT) $(PKG)
 
 .PHONY: all run clean
