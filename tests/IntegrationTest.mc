@@ -42,6 +42,12 @@ class TestApp extends CalcApp {
   function printStack() {
     System.println("Stack: " + stack);
   }
+
+  function typeNumber(str) {
+    for (var i = 0; i < str.length(); i++) {
+      select(str.substring(i, i+1));
+    }
+  }
 }
   
 (:test)
@@ -172,4 +178,14 @@ function testMultipleEnterAsDup(logger as Logger) {
   app.select(:ENTER);
   app.select(:ENTER);
   return app.stackContains([5, 5]);
+}
+
+(:test)
+function testBignum(logger as Logger) {
+  var app = new TestApp();
+  app.typeNumber("65536");
+  app.select(:ENTER);
+  app.select(:ENTER);
+  app.select(:MUL);
+  return app.stackOnlyContains(4294967296L);
 }

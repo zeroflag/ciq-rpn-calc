@@ -5,38 +5,46 @@ class Calc {
     stack = aStack; 
   }
 
-  function push(n) {
-    stack.push(n);
-  }
-  
   function add() {
-    stack.push(stack.pop() + stack.pop());
+    push(pop() + pop());
   }
 
   function sub() {
-    var a = stack.pop(); 
-    var b = stack.pop(); 
-    stack.push(b - a);
+    var a = pop(); 
+    var b = pop(); 
+    push(b - a);
   }
 
   function mul() {
-    stack.push(stack.pop() * stack.pop());
+    push(pop() * pop());
   }
 
   function div() {
-    var a = stack.pop(); 
-    var b = stack.pop(); 
-    stack.push(a == 0 ? 0 : b / a.toDouble());
+    var a = pop(); 
+    var b = pop(); 
+    push(a == 0 ? 0 : b / a.toDouble());
   }
 
+  function push(n) {
+    if (n instanceof Number) {
+      stack.push(n.toLong());
+    } else {
+      stack.push(n);
+    }
+  }
+
+  function pop() {
+    return stack.pop();
+  }
+  
   function dup() {
-    stack.push(stack.tos());
+    push(stack.tos());
   }
   
   function clearY() {
     if (!stack.isEmpty()) {
-      stack.pop(); 
-      stack.push(0);
+      pop(); 
+      push(0);
     }
   }
 

@@ -8,7 +8,7 @@ class Stack {
     capacity = n;
     none = noneValue;
     for (var i = 0; i < capacity; i++) {
-      stack.add(0);
+      stack.add(0L);
     }
   }
 
