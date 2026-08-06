@@ -1,6 +1,6 @@
 class DisplayView {
   const TEXT_COLOR = Graphics.COLOR_BLACK;
-  const PENDING_TEXT_COLOR = Graphics.COLOR_DK_GRAY;
+  const PENDING_TEXT_COLOR = Graphics.COLOR_DK_RED;
   const MAX_LEN = 9;
   const FONT = Graphics.FONT_MEDIUM;
   const FONT_HEIGHT = Graphics.getFontHeight(FONT);

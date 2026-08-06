@@ -2,7 +2,7 @@ class ButtonsModel {
   const OPERATORS = [ "0", "1", "2", "3", "4",
                       "5", "6", "7", "8", "9",
                       :BACKSPACE, :ENTER,
-                      :ADD, :SUB, :MUL, :DIV,
+                      :MUL, :DIV, :ADD, :SUB,
                       :DECIMAL ];
 
   private var selected = 0;
