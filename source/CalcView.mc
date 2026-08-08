@@ -4,10 +4,12 @@ using Toybox.Math;
 
 class CalcView extends WatchUi.View {
   private var views;
+  private var palette;
 
-  function initialize(viewsArray) {
+  function initialize(aPalette, viewsArray) {
     View.initialize();
     views = viewsArray;
+    palette = aPalette;
   }
 
   function onLayout(dc) {
@@ -16,7 +18,7 @@ class CalcView extends WatchUi.View {
 
   function onUpdate(dc) {
     View.onUpdate(dc);
-    dc.setColor(Graphics.COLOR_BLACK, Graphics.COLOR_WHITE);
+    dc.setColor(palette.displayFgColor, palette.displayBgColor);
     dc.clear();
     for (var i = 0; i < views.size(); i++) {
       views[i].draw(dc);

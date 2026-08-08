@@ -45,13 +45,13 @@ class ButtonsView {
     if (i == model.selectedIndex()) {
       dc.setColor(palette.displayBgColor, palette.displayFgColor); // invert
     } else if (i <= 9) {
-      dc.setColor(palette.btnDigitsColor, Graphics.COLOR_WHITE);
+      dc.setColor(palette.btnDigitsColor, palette.displayBgColor);
     } else if (i <= 10) {
-      dc.setColor(palette.btnClearColor, Graphics.COLOR_WHITE);
+      dc.setColor(palette.btnClearColor, palette.displayBgColor);
     } else if (i <= 11) {
-      dc.setColor(palette.btnEnterColor, Graphics.COLOR_WHITE);
+      dc.setColor(palette.btnEnterColor, palette.displayBgColor);
     } else {
-      dc.setColor(palette.btnOpsColor, Graphics.COLOR_WHITE);
+      dc.setColor(palette.btnOpsColor, palette.displayBgColor);
     }
   }
 

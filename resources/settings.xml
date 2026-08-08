@@ -2,7 +2,7 @@
   <setting
     propertyKey="@Properties.stackSize"
     title="@Strings.SettingStackSize">
-      <settingConfig type="numeric" min="2" max="64" />
+      <settingConfig type="numeric" min="2" max="32" />
   </setting>
 
  <group id="colorGroup" title="@Strings.ColorGroup">

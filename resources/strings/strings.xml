@@ -7,8 +7,8 @@
   <string id="SettingBtnEnterColor">Enter Button Color</string>
   <string id="SettingBtnClearColor">Clear Button Color</string>
   <string id="SettingBtnOpsColor">Operator Buttons Color</string>
-  <string id="SettingDisplayFgColor">Display Foreground Color</string>
-  <string id="SettingDisplayBgColor">Display Background Color</string>
+  <string id="SettingDisplayFgColor">Foreground Color</string>
+  <string id="SettingDisplayBgColor">Background Color</string>
   <string id="SettingPendingTextColor">Pending Text Color</string>
   <string id="ColorWhite">White</string>
   <string id="ColorLtGray">Light Gray</string>

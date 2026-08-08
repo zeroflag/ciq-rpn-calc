@@ -16,7 +16,8 @@ class CalcApp extends App.AppBase {
     displayModel = new DisplayModel(calc);
     var palette = new Palette(self);
     ctrl = new CalcController(buttonsModel, displayModel);
-    view = new CalcView([new ButtonsView(buttonsModel, palette),
+    view = new CalcView(palette,
+                        [new ButtonsView(buttonsModel, palette),
                          new DisplayView(displayModel, palette)]);
   }
 
