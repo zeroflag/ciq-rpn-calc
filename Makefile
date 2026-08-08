@@ -4,10 +4,13 @@ OUT      := $(APP).PRG
 TESTOUT  := $(APP)_TEST.PRG
 PKG      := $(APP).iq
 KEY      := developer_key.der
-SDKPATH  := ~/.Garmin/ConnectIQ/Sdks/connectiq-sdk-lin-9.2.0-2026-06-09-92a1605b2/bin
 
-MONKEYC  := $(SDKPATH)/monkeyc
-SIM      := $(SDKPATH)/simhack
+ifeq ($(shell command -v monkeyc 2>/dev/null),)
+	PREFIX  := ~/.Garmin/ConnectIQ/Sdks/connectiq-sdk-lin-9.2.0-2026-06-09-92a1605b2/bin/
+endif
+
+MONKEYC  := $(PREFIX)monkeyc
+SIM      := $(PREFIX)simhack
 
 all: $(OUT)
 
