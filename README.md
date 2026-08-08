@@ -1,11 +1,9 @@
-# ciq-rpn-calc
-Garmin ConnectIQ RPN Calculator
-
+# Garmin ConnectIQ RPN Calculator
 
 <img src="imgs/screenshot.jpg" alt="screenshot" width="250"/>
 
 
-Simple [Garmin](https://apps.garmin.com/apps/940d1991-7ffc-451e-bb73-0c9347598cdc) RPN (Reverse Polish Notation) Calculator where operators come after the operands. 
+Simple [Garmin](https://apps.garmin.com/apps/940d1991-7ffc-451e-bb73-0c9347598cdc) RPN (Reverse Polish Notation) calculator where operators come after the operands. 
 
 For example, enter 1 2 + instead of 1 + 2.
 
