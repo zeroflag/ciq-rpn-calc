@@ -18,8 +18,7 @@ class DisplayView {
     var cellHeight = displayHeight / 2;
 
     dc.setColor(palette.displayFgColor, palette.displayBgColor);
-
-    /* dc.drawLine(x, y + cellHeight, x + displayWidth, y + cellHeight); */
+    dc.drawLine(x, y + cellHeight, x + displayWidth, y + cellHeight);
 
     var xy = registers();
     // NOS
@@ -42,9 +41,10 @@ class DisplayView {
       font = Graphics.FONT_SMALL; 
       text = Graphics.fitTextToArea(text, font, w, h, true);
     }
+    var d = dc.getTextDimensions(text, font);
     dc.drawText(
       x,
-      y + (h - Graphics.getFontHeight(font)) / 2,
+      y + (h - d[1]) / 2,
       font,
       text,
       Graphics.TEXT_JUSTIFY_LEFT);
