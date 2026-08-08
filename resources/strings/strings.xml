@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
   <string id="AppName">RPN Calculator</string>
+  <string id="ColorGroup">Color Scheme</string>
   <string id="SettingStackSize">Stack Size</string>
   <string id="SettingBtnDigitsColor">Digits Button Color</string>
   <string id="SettingBtnEnterColor">Enter Button Color</string>
@@ -9,4 +10,17 @@
   <string id="SettingDisplayFgColor">Display Foreground Color</string>
   <string id="SettingDisplayBgColor">Display Background Color</string>
   <string id="SettingPendingTextColor">Pending Text Color</string>
+  <string id="ColorWhite">White</string>
+  <string id="ColorLtGray">Light Gray</string>
+  <string id="ColorDkGray">Dark Gray</string>
+  <string id="ColorBlack">Black</string>
+  <string id="ColorRed">Red</string>
+  <string id="ColorDkRed">Dark Red</string>
+  <string id="ColorOrange">Orange</string>
+  <string id="ColorYellow">Yellow</string>
+  <string id="ColorGreen">Green</string>
+  <string id="ColorDkGreen">Dark Green</string>
+  <string id="ColorBlue">Blue</string>
+  <string id="ColorDkBlue">Dark Blue</string>
+  <string id="ColorPurple">Purple</string>
 </resources>

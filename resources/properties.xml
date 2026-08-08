@@ -1,17 +1,18 @@
 <properties>
+  <property id="appVersion" type="string">0.2a</property>
   <property id="stackSize" type="number">4</property>
   <!-- dark green -->
-  <property id="btnDigitsColor" type="number">0x00AA00</property>
+  <property id="btnDigitsColor" type="number">10</property>
   <!-- dark blue -->
-  <property id="btnEnterColor" type="number">0x0000FF</property>
+  <property id="btnEnterColor" type="number">12</property>
   <!-- dark red -->
-  <property id="btnClearColor" type="number">0xAA0000</property>
+  <property id="btnClearColor" type="number">6</property>
   <!-- black -->
-  <property id="btnOpsColor" type="number">0x000000</property>
+  <property id="btnOpsColor" type="number">4</property>
   <!-- black -->
-  <property id="displayFgColor" type="number">0x000000</property>
+  <property id="displayFgColor" type="number">4</property>
   <!-- white -->
-  <property id="displayBgColor" type="number">0xFFFFFF</property>
+  <property id="displayBgColor" type="number">1</property>
   <!-- dark red -->
-  <property id="pendingTextColor" type="number">0xAA0000</property>
+  <property id="pendingTextColor" type="number">6</property>
 </properties>
