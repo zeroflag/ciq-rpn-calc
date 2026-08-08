@@ -2,12 +2,12 @@ class DisplayView {
   private var displayModel;
   private var palette;
 
-  public function initialize(aDisplayModel, aPalette) {
+  function initialize(aDisplayModel, aPalette) {
     displayModel = aDisplayModel;
     palette = aPalette;
   }
   
-  public function draw(dc) {
+  function draw(dc) {
     var displayWidth = dc.getWidth() / 2;
     var displayHeight = dc.getHeight() / 2;
 
@@ -36,7 +36,7 @@ class DisplayView {
     /* dc.drawRectangle(x, y + cellHeight, cellWidth, cellHeight); */
   }
 
-  function drawRegister(dc, x, y, text, w, h) {
+  private function drawRegister(dc, x, y, text, w, h) {
     var font = Graphics.FONT_MEDIUM;
     if (Graphics.fitTextToArea(text, font, w, h, false) == null) {
       font = Graphics.FONT_SMALL; 
@@ -50,7 +50,7 @@ class DisplayView {
       Graphics.TEXT_JUSTIFY_LEFT);
   }
 
-  function registers() {
+  private function registers() {
     return displayModel.hasPendingValue()
       ? [toStr(displayModel.getRegY()),
           displayModel.pendingValue()]

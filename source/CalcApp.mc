@@ -10,7 +10,7 @@ class CalcApp extends App.AppBase {
 
   function initialize() {
     AppBase.initialize();
-    stack = new Stack(getProperty("stackSize"), 0);
+    stack = new Stack(getProperty("stackSize"), 0L);
     calc = new Calc(stack);
     buttonsModel = new ButtonsModel();
     displayModel = new DisplayModel(calc);

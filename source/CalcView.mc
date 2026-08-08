@@ -8,8 +8,8 @@ class CalcView extends WatchUi.View {
 
   function initialize(aPalette, viewsArray) {
     View.initialize();
-    views = viewsArray;
     palette = aPalette;
+    views = viewsArray;
   }
 
   function onLayout(dc) {

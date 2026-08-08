@@ -8,7 +8,7 @@ class Stack {
     capacity = n;
     none = noneValue;
     for (var i = 0; i < capacity; i++) {
-      stack.add(0L);
+      stack.add(noneValue);
     }
   }
 
@@ -49,14 +49,6 @@ class Stack {
 
   function nos() {
     return size() < 2 ? none : stack[sp - 2];
-  }
-
-  function setTos(v) {
-    if (isEmpty()) {
-      push(v);
-    } else {
-      stack[sp -1] = v;
-    }
   }
 
   function size() {

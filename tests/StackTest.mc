@@ -99,24 +99,3 @@ function stackDiscardWhenOverflow(logger as Logger) {
   Test.assert(stack.pop() == null);
   return stack.isEmpty();
 }
-
-(:test)
-function stackSetTosOnEmpty(logger as Logger) {
-  var stack = createStack(4);
-  stack.setTos(42);
-  Test.assert(stack.tos() == 42);
-  Test.assert(stack.size() == 1);
-  return true;
-}
-
-(:test)
-function stackSetTos(logger as Logger) {
-  var stack = createStack(4);
-  stack.push(10);
-  stack.push(20);
-  stack.setTos(42);
-  Test.assert(stack.tos() == 42);
-  Test.assert(stack.nos() == 10);
-  Test.assert(stack.size() == 2);
-  return true;
-}
