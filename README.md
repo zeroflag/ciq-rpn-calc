@@ -15,5 +15,5 @@ C – Clear the current input or delete the last entered digit.
 
 E – Enter the current input onto the stack. If no number is being entered, it duplicates the top value on the stack.
 
-The calculator uses a fixed 4-level stack (can be increased in the settings). 
+The calculator uses a configurable stack, with a default depth of 4.
 The top two stack values are displayed on the screen.
