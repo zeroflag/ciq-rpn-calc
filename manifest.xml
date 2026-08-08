@@ -37,7 +37,6 @@
         <iq:product id="fr255sm"/>
         <iq:product id="fr745"/>
         <iq:product id="fr945"/>
-        <iq:product id="fr945lte"/>
         <!-- More padding needed -->
         <!-- <iq:product id="fenix843mm"/> -->
         <!-- <iq:product id="fenix847mm"/> -->
@@ -47,6 +46,7 @@
         <!-- <iq:product id="fr745m"/> -->
         <!-- <iq:product id="fr645"/> -->
         <!-- <iq:product id="fr645m"/> -->
+        <!-- <iq:product id="fr945lte"/> -->
     </iq:products>
 
     <iq:permissions/>
