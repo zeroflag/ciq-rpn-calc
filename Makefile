@@ -54,4 +54,4 @@ version:
 clean:
 	rm -f $(OUT) $(TESTOUT) $(PKG)
 
-.PHONY: all run version clean
+.PHONY: all run version clean package test
