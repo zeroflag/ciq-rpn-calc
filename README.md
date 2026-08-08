@@ -2,4 +2,4 @@
 Garmin ConnectIQ RPN Calculator
 
 
-<img src="imgs/coverimage.jpg" alt="screenshot" width="300"/>
+<img src="imgs/screenshot" alt="screenshot" width="300"/>
