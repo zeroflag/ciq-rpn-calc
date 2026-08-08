@@ -3,6 +3,8 @@
   version="3"
   xmlns:iq="http://www.garmin.com/xml/connectiq">
 
+  <!-- List of devices: https://developer.garmin.com/connect-iq/device-reference -->
+
   <iq:application
     id="7f3a2b1c9d4e5f60718293a4b5c6d7e8"
     name="@Strings.AppName"
@@ -14,6 +16,9 @@
         <iq:product id="fenix5"/>
         <iq:product id="fenix5s"/>
         <iq:product id="fenix5x"/>
+        <iq:product id="fenix5plus"/>
+        <iq:product id="fenix5splus"/>
+        <iq:product id="fenix5xplus"/>
         <iq:product id="fenix6"/>
         <iq:product id="fenix6s"/>
         <iq:product id="fenix6spro"/>
@@ -26,26 +31,22 @@
         <iq:product id="fenix8solar51mm"/>
         <iq:product id="fenixchronos"/>
         <iq:product id="fr245"/>
+        <iq:product id="fr245m"/>
         <iq:product id="fr935"/>
+        <iq:product id="fr255s"/>
+        <iq:product id="fr255sm"/>
+        <iq:product id="fr745"/>
+        <iq:product id="fr945"/>
+        <iq:product id="fr945lte"/>
         <!-- More padding needed -->
         <!-- <iq:product id="fenix843mm"/> -->
         <!-- <iq:product id="fenix847mm"/> -->
         <!-- <iq:product id="fenix8pro47mm"/> -->
 	      <!-- <iq:product id="fenixe"/> -->
         <!-- TOOD -->
-        <!-- <iq:product id="fr245m"/> -->
-        <!-- <iq:product id="fenix5splus"/> -->
-        <!-- <iq:product id="fenix5plus"/> -->
-        <!-- <iq:product id="fenix5xplus"/> -->
-        <!-- <iq:product id="fenixchronos"/> -->
-        <!-- <iq:product id="fr255s"/> -->
-        <!-- <iq:product id="fr255sm"/> -->
+        <!-- <iq:product id="fr745m"/> -->
         <!-- <iq:product id="fr645"/> -->
         <!-- <iq:product id="fr645m"/> -->
-        <!-- <iq:product id="fr745m"/> -->
-        <!-- <iq:product id="fr745"/> -->
-        <!-- <iq:product id="fr945"/> -->
-        <!-- <iq:product id="fr945lte"/> -->
     </iq:products>
 
     <iq:permissions/>
