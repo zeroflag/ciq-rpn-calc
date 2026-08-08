@@ -1,10 +1,10 @@
 class DisplayView {
-  const TEXT_COLOR = Graphics.COLOR_BLACK;
-  const PENDING_TEXT_COLOR = Graphics.COLOR_DK_RED;
   private var displayModel;
+  private var palette;
 
-  public function initialize(aDisplayModel) {
+  public function initialize(aDisplayModel, aPalette) {
     displayModel = aDisplayModel;
+    palette = aPalette;
   }
   
   public function draw(dc) {
@@ -17,7 +17,7 @@ class DisplayView {
     var cellWidth = displayWidth;
     var cellHeight = displayHeight / 2;
 
-    dc.setColor(TEXT_COLOR, Graphics.COLOR_WHITE);
+    dc.setColor(palette.displayFgColor, palette.displayBgColor);
 
     /* dc.drawLine(x, y + cellHeight, x + displayWidth, y + cellHeight); */
 
@@ -26,9 +26,9 @@ class DisplayView {
     drawRegister(dc, x, y, xy[0], cellWidth, cellHeight);
 
     var color = displayModel.hasPendingValue()
-      ? PENDING_TEXT_COLOR
-      : TEXT_COLOR;
-    dc.setColor(color, Graphics.COLOR_WHITE);
+      ? palette.pendingTextColor
+      : palette.displayFgColor;
+    dc.setColor(color, palette.displayBgColor);
     // TOS 
     drawRegister(dc, x, y + cellHeight, xy[1], cellWidth, cellHeight);
 

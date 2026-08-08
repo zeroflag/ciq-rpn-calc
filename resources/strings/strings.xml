@@ -1,4 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
   <string id="AppName">RPN Calculator</string>
+  <string id="SettingStackSize">Stack Size</string>
+  <string id="SettingBtnDigitsColor">Digits Button Color</string>
+  <string id="SettingBtnEnterColor">Enter Button Color</string>
+  <string id="SettingBtnClearColor">Clear Button Color</string>
+  <string id="SettingBtnOpsColor">Operator Buttons Color</string>
+  <string id="SettingDisplayFgColor">Display Foreground Color</string>
+  <string id="SettingDisplayBgColor">Display Background Color</string>
+  <string id="SettingPendingTextColor">Pending Text Color</string>
 </resources>

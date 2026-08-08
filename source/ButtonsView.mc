@@ -9,9 +9,11 @@ class ButtonsView {
                 :DIV       => ":",
                 :DECIMAL   => "." };
   private var model;
+  private var palette;
 
-  function initialize(aModel) {
+  function initialize(aModel, aPalette) {
     model = aModel;
+    palette = aPalette;
   }
 
   function draw(dc) {
@@ -41,15 +43,15 @@ class ButtonsView {
 
   private function chooseColor(i, dc) {
     if (i == model.selectedIndex()) {
-      dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_BLACK);
+      dc.setColor(palette.displayBgColor, palette.displayFgColor); // invert
     } else if (i <= 9) {
-      dc.setColor(Graphics.COLOR_DK_GREEN, Graphics.COLOR_WHITE);
+      dc.setColor(palette.btnDigitsColor, Graphics.COLOR_WHITE);
     } else if (i <= 10) {
-      dc.setColor(Graphics.COLOR_DK_RED, Graphics.COLOR_WHITE);
+      dc.setColor(palette.btnClearColor, Graphics.COLOR_WHITE);
     } else if (i <= 11) {
-      dc.setColor(Graphics.COLOR_DK_BLUE, Graphics.COLOR_WHITE);
+      dc.setColor(palette.btnEnterColor, Graphics.COLOR_WHITE);
     } else {
-      dc.setColor(Graphics.COLOR_BLACK, Graphics.COLOR_WHITE);
+      dc.setColor(palette.btnOpsColor, Graphics.COLOR_WHITE);
     }
   }
 

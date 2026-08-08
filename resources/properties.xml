@@ -1,0 +1,17 @@
+<properties>
+  <property id="stackSize" type="number">4</property>
+  <!-- dark green -->
+  <property id="btnDigitsColor" type="number">0x00AA00</property>
+  <!-- dark blue -->
+  <property id="btnEnterColor" type="number">0x0000FF</property>
+  <!-- dark red -->
+  <property id="btnClearColor" type="number">0xAA0000</property>
+  <!-- black -->
+  <property id="btnOpsColor" type="number">0x000000</property>
+  <!-- black -->
+  <property id="displayFgColor" type="number">0x000000</property>
+  <!-- white -->
+  <property id="displayBgColor" type="number">0xFFFFFF</property>
+  <!-- dark red -->
+  <property id="pendingTextColor" type="number">0xAA0000</property>
+</properties>

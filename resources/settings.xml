@@ -1,0 +1,56 @@
+<settings>
+  <setting
+    propertyKey="@Properties.stackSize"
+    title="@Strings.SettingStackSize">
+      <settingConfig type="numeric" min="2" max="64" />
+  </setting>
+
+  <!-- dark green -->
+  <setting
+    propertyKey="@Properties.btnDigitsColor"
+    title="@Strings.SettingBtnDigitsColor">
+      <settingConfig type="numeric"/>
+  </setting>
+
+  <!-- blue -->
+  <setting
+    propertyKey="@Properties.btnEnterColor"
+    title="@Strings.SettingBtnEnterColor">
+      <settingConfig type="numeric"/>
+  </setting>
+
+  <!-- dark red -->
+  <setting
+    propertyKey="@Properties.btnClearColor"
+    title="@Strings.SettingBtnClearColor">
+      <settingConfig type="numeric"/>
+  </setting>
+
+  <!-- black -->
+  <setting
+    propertyKey="@Properties.btnOpsColor"
+    title="@Strings.SettingBtnOpsColor">
+      <settingConfig type="numeric"/>
+  </setting>
+
+  <!-- black -->
+  <setting
+    propertyKey="@Properties.displayFgColor"
+    title="@Strings.SettingDisplayFgColor">
+      <settingConfig type="numeric"/>
+  </setting>
+
+  <!-- white -->
+  <setting
+    propertyKey="@Properties.displayBgColor"
+    title="@Strings.SettingDisplayBgColor">
+      <settingConfig type="numeric"/>
+  </setting>
+
+  <!-- dark red -->
+  <setting
+    propertyKey="@Properties.pendingTextColor"
+    title="@Strings.SettingPendingTextColor">
+      <settingConfig type="numeric"/>
+  </setting>
+</settings>
