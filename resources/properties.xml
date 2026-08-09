@@ -1,5 +1,5 @@
 <properties>
-  <property id="appVersion" type="string">0.7a-86</property>
+  <property id="appVersion" type="string">0.7a-90</property>
   <property id="stackSize" type="number">4</property>
   <!-- green -->
   <property id="btnDigitsColor" type="number">9</property>

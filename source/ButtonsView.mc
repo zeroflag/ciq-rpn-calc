@@ -42,16 +42,17 @@ class ButtonsView {
   }
 
   private function chooseColor(i, dc) {
+    var item = model.at(i);
     if (i == model.selectedIndex()) {
       dc.setColor(palette.displayBgColor, palette.displayFgColor); // invert
-    } else if (i <= 9) {
-      dc.setColor(palette.btnDigitsColor, palette.displayBgColor);
-    } else if (i <= 10) {
-      dc.setColor(palette.btnClearColor, palette.displayBgColor);
-    } else if (i <= 11) {
+    } else if (item == :ENTER) {
       dc.setColor(palette.btnEnterColor, palette.displayBgColor);
-    } else {
+    } else if (item == :BACKSPACE) {
+      dc.setColor(palette.btnClearColor, palette.displayBgColor);
+    } else if ([:DIV, :MUL, :SUB, :ADD].indexOf(item) >= 0) {
       dc.setColor(palette.btnOpsColor, palette.displayBgColor);
+    } else {
+      dc.setColor(palette.btnDigitsColor, palette.displayBgColor);
     }
   }
 
