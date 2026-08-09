@@ -1,41 +1,34 @@
 class ButtonsModel {
+  const SELECTED = 2;
   const OPERATORS = [ "0", "1", "2", "3", "4",
                       "5", "6", "7", "8", "9",
                       :BACKSPACE, :ENTER,
                       :DIV, :MUL, :SUB, :ADD, 
                       :DECIMAL ];
 
-  private var selected = 0;
-
-  function initialize() {
-    selected = 0;
-  }
+  private var index = 0;
 
   function next() {
-    selected--;
-    if (selected < 0) {
-      selected = size() - 1;
+    index--;
+    if (index < 0) {
+      index = size() - 1;
     }
   }
 
   function previous() {
-    selected = (selected + 1) % size();
+    index = (index + 1) % size();
   }
   
   function at(n) {
-    return OPERATORS[n];
-  }
-
-  function select(n) {
-    selected = n;
+    return OPERATORS[(index + n) % size()];
   }
 
   function selectedIndex() {
-    return selected;
+    return SELECTED;
   }
 
   function selectedItem() {
-    return OPERATORS[selected];
+    return at(SELECTED);
   }
   
   function size() {
