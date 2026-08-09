@@ -1,6 +1,7 @@
 class ButtonsView {
   const PADDING = 15;
   const FONT = Graphics.FONT_MEDIUM;
+  const BK_COL = Graphics.COLOR_TRANSPARENT;
   const OPS = { :BACKSPACE => "C",
                 :ENTER     => "E",
                 :ADD       => "+",
@@ -20,21 +21,32 @@ class ButtonsView {
     var degrees = -90.0;
     var step = 360.0 / model.size();
     for (var i = 0; i < model.size(); i++) {
-      chooseColor(i, dc);
-      drawButton(dc, degrees, i);
+      var centerX = dc.getWidth() / 2;
+      var centerY = dc.getHeight() / 2;
+      var radius = centerX - PADDING;
+      var radian = Math.toRadians(degrees);
+      var x = radius * Math.cos(radian) + centerX;
+      var y = radius * Math.sin(radian) + centerY;
+
+      drawHighlight(dc, i, x, y);
+      drawButton(dc, i, x, y);
+
       degrees += step;
     }
   }
 
-  private function drawButton(dc, degrees, i) {
+  private function drawHighlight(dc, i, x, y) {
+    if (i == model.selectedIndex()) {
+      dc.setColor(palette.displayFgColor, palette.displayBgColor);
+      dc.fillCircle(x, y, Graphics.getFontHeight(FONT) / 2);
+    }
+  }
+
+  private function drawButton(dc, i, x, y) {
     var button = model.at(i);
-    var centerX = dc.getWidth() / 2;
-    var centerY = dc.getHeight() / 2;
-    var radius = centerX - PADDING;
-    var radian = Math.toRadians(degrees);
+    chooseColor(i, dc);
     dc.drawText(
-      radius * Math.cos(radian) + centerX,
-      radius * Math.sin(radian) + centerY,
+      x, y,
       FONT,
       translate(button),
       Graphics.TEXT_JUSTIFY_CENTER
@@ -44,15 +56,15 @@ class ButtonsView {
   private function chooseColor(i, dc) {
     var item = model.at(i);
     if (i == model.selectedIndex()) {
-      dc.setColor(palette.displayBgColor, palette.displayFgColor); // invert
+      dc.setColor(palette.displayBgColor, BK_COL);
     } else if (item == :ENTER) {
-      dc.setColor(palette.btnEnterColor, palette.displayBgColor);
+      dc.setColor(palette.btnEnterColor, BK_COL);
     } else if (item == :BACKSPACE) {
-      dc.setColor(palette.btnClearColor, palette.displayBgColor);
+      dc.setColor(palette.btnClearColor, BK_COL);
     } else if ([:DIV, :MUL, :SUB, :ADD].indexOf(item) >= 0) {
-      dc.setColor(palette.btnOpsColor, palette.displayBgColor);
+      dc.setColor(palette.btnOpsColor, BK_COL);
     } else {
-      dc.setColor(palette.btnDigitsColor, palette.displayBgColor);
+      dc.setColor(palette.btnDigitsColor, BK_COL);
     }
   }
 

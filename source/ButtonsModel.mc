@@ -8,6 +8,10 @@ class ButtonsModel {
 
   private var index = 0;
 
+  function initialize() {
+    next();
+  }
+
   function next() {
     index--;
     if (index < 0) {
