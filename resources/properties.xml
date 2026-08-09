@@ -15,6 +15,6 @@
   <property id="displayBgColor" type="number">4</property>
   <!-- gray -->
   <property id="pendingTextColor" type="number">2</property>
-  <!-- red -->
-  <property id="separatorColor" type="number">5</property>
+  <!-- dark red -->
+  <property id="separatorColor" type="number">6</property>
 </properties>
