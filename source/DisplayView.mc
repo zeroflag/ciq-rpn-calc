@@ -17,8 +17,9 @@ class DisplayView {
     var cellWidth = displayWidth;
     var cellHeight = displayHeight / 2;
 
-    dc.setColor(palette.displayFgColor, palette.displayBgColor);
+    dc.setColor(palette.separatorColor, palette.displayBgColor);
     dc.drawLine(x, y + cellHeight, x + displayWidth, y + cellHeight);
+    dc.setColor(palette.displayFgColor, palette.displayBgColor);
 
     var xy = registers();
     // NOS

@@ -10,6 +10,7 @@
   <string id="SettingDisplayFgColor">Foreground Color</string>
   <string id="SettingDisplayBgColor">Background Color</string>
   <string id="SettingPendingTextColor">Pending Text Color</string>
+  <string id="SettingSeparatorColor">Separator Color</string>
   <string id="ColorWhite">White</string>
   <string id="ColorLtGray">Light Gray</string>
   <string id="ColorDkGray">Dark Gray</string>

@@ -6,6 +6,7 @@ class Palette {
   var displayFgColor;
   var displayBgColor;
   var pendingTextColor;
+  var separatorColor;
 
   function initialize(app) {
     btnDigitsColor   = color(app.getProperty("btnDigitsColor"));
@@ -15,6 +16,7 @@ class Palette {
     displayFgColor   = color(app.getProperty("displayFgColor"));
     displayBgColor   = color(app.getProperty("displayBgColor"));
     pendingTextColor = color(app.getProperty("pendingTextColor"));
+    separatorColor   = color(app.getProperty("separatorColor"));
   }
 
   private function color(value) {
